@@ -6,11 +6,8 @@ import MovieDetailsPage from "../../pages/MovieDetailsPage/MovieDetailsPage";
 import Navigation from "../Navigation/Navigation";
 import MovieCast from "../MovieCast/MovieCast";
 import MovieReviews from "../MovieReviews/MovieReviews";
-import { fetchPicturesWithTopic } from "../../movies-api";
 
 const App = () => {
-  fetchPicturesWithTopic();
-
   return (
     <div>
       <Navigation />

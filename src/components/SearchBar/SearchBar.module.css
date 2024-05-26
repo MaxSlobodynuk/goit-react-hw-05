@@ -1,0 +1,38 @@
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+form {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+
+input {
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  width: 300px;
+}
+
+
+button {
+  background-color: #008CBA;
+  color: white;
+  padding: 10px 20px; 
+  border: none; 
+  cursor: pointer; 
+  font-size: 16px; 
+}
+
+
+button:hover {
+  background-color: #006B8F; 
+}
