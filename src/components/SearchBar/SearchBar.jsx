@@ -6,10 +6,12 @@ const SearchBar = ({ onSearch }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query") ?? "";
 
-  const handleChange = ({target}) => {
+  const handleChange = ({ target }) => {
+    const value = target.value
     target.value
-      ? setSearchParams({ query: target.value })
-      : setSearchParams({});
+      ? searchParams.set("query", value)
+      : searchParams.set("query", "");
+    setSearchParams(searchParams);
   };
 
   const handleSubmit = (evt) => {
