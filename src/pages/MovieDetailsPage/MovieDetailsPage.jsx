@@ -35,7 +35,7 @@ const MovieDetailsPage = () => {
           <Link to="cast">Cast</Link>
         </li>
         <li>
-          <Link to="reviews">Cast</Link>
+          <Link to="reviews">Reviews</Link>
         </li>
       </ul>
       <Outlet />
