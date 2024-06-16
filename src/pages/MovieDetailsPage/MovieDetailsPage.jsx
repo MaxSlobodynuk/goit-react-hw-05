@@ -1,6 +1,6 @@
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { getMovieDetails } from "../../movies-api";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Film from "../../components/Film/Film";
 
 const MovieDetailsPage = () => {
@@ -8,6 +8,10 @@ const MovieDetailsPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const { movieId } = useParams();
+
+  const location = useLocation();
+
+  const backLinkHref = useRef(location.state ?? "/movies");
 
   useEffect(() => {
     const getFilm = async () => {
@@ -27,6 +31,9 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
+      <Link className="backButton" to={backLinkHref.current}>
+        ◀ go back
+      </Link>
       {loading && <p>loading...</p>}
       {error && <p>Unstable connection, please try again</p>}
       {film && <Film details={film} />}
@@ -38,7 +45,10 @@ const MovieDetailsPage = () => {
           <Link to="reviews">Reviews</Link>
         </li>
       </ul>
-      <Outlet />
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
